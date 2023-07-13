@@ -21,7 +21,6 @@ export default function Home() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
 
     // Make POST request to '/api/submit' with the selected option, username, and link
     // Here, you can use libraries like Axios or fetch to perform the actual POST request
@@ -42,6 +41,23 @@ export default function Home() {
       setUsername('');
       setOption('');
       setLink('');
+     fetch("https://qropay.com/api/add_order.php",{
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:{
+        "key": "2323180097403",
+        "secretKey":"e4e2fb39632ba7d1f915bdb4d84bc086",
+        "order_id": "1234567890",
+        "amount": "100",
+        "purpose": "Product Name",
+        "customer_email": "jondoe@gmail.com",
+        "redirect_url": "http://google.com"
+      }
+     }).then(res=>{
+      console.log(res);
+     })
   };
 
   return (
