@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   const handleSubmit = (event) => {
-
+    event.preventDefault();
     // Make POST request to '/api/submit' with the selected option, username, and link
     // Here, you can use libraries like Axios or fetch to perform the actual POST request
     fetch('/api/submit', {
